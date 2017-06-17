@@ -1,0 +1,10 @@
+set terminal png
+set output "plot.png"
+set title "Available Memory .vs. Required Memory"
+set xlabel "Date"
+set ylabel "Memory"
+set format y "%.1f GB"
+set xdata time
+set timefmt "%Y-%b-%d %H:%M"
+plot "data" using 1:($3/(1024*1024)) title "CommitLimit", "data" using 1:($4/(1024*1024)) title "Committed_AS"
+# pause -1

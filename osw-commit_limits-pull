@@ -1,0 +1,21 @@
+#!/bin/awk -f
+BEGIN	{
+}
+/^zzz/	{
+	m = $3
+	d = $4
+	t = $5
+	next
+}
+/^CommitLimit/	{
+	cl = $2
+	next
+}
+/^Committed_AS/	{
+	cas = $2
+	# print m, d, t, cl, cas
+	printf "2009-%s-%02d %s\t%d\t%d\n", m, d, t, cl, cas
+	next
+}
+END	{
+}
